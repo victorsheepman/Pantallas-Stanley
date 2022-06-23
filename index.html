@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Album example · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
+
+    
+
+    
+
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .modal-header{
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      
+    .modal-body{
+        background-color: #0877b9; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .form-control{
+
+        color: #0877b9;
+    }
+    .-group{
+       
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+   }
+    .country-group{
+        width: 100%;
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+        background-color: darkgoldenrod;
+    }
+    .fax-group{
+        width: 65%;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        margin-top: 12px;
+    }
+    .name-group{
+        width: 70%;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        margin-top: 12px;
+    }
+    .InputNew{
+      background-color:white;
+      width: 300px;
+      border: unset;
+      margin-right: 12px; 
+      font-size: 16px;
+      border-radius:5px  5px  5px  5px;
+    }
+   
+
+    </style>
+
+    
+  </head>
+  <body>
+    <!-- Modal -->
+    <div class="" id="ADDMODAL" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" 
+        aria-hidden="true">
+        <div class="modal-header align-content-center" >
+            <h1 *ngIf="!onEdit" class="modal-title" id="exampleModalLongTitle">Employee General Information</h1>
+        </div>
+        <div class="modal-dialog" role="document"  >
+            <div class="modal-content" >    
+                <div class="modal-body ">
+                    <!-- ... A partir de aqui -->
+                    <form [formGroup]="fGroup" >
+                        <!-- <fieldset class="card  border-left-primary"></fieldset> -->
+                        
+                            <!-- <div class="row mt-2"  style="margin-left: 5px !important;"> -->
+                            <div class="row bg-success">
+                                <div class="box-group">
+                                  <div class="name-group">
+                                    <div class="col-md-6">
+
+                                      <div class="form-group">
+                                            <label class="control-label letters h5">Name:</label>
+                                            
+                                            <input id="Name" autocomplete="doNotAutoComplete" formControlName="Name" class="form-control InputNew " value="Victor"
+                                                (keyup)="mEnter($event)" (keypress)="preview($event)" type="text" [readonly]="onEdit==true" > 
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                      <div class="form-group">
+                                          <label class="control-label letters h5">LastName:</label>
+                                          
+                                          <input id="Name" autocomplete="doNotAutoComplete" formControlName="Name" class="form-control InputNew" value="Martinez"
+                                              (keyup)="mEnter($event)" (keypress)="preview($event)" style="background-color:white;width: 300px; border: unset;
+                                              border-radius:5px  5px  5px  5px" type="text" [readonly]="onEdit==true" > 
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                    <div class="name-group">
+                                      <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label class="control-label letters h5">Date of Birth:</label>
+                                            
+                                            <input  id="Name" autocomplete="doNotAutoComplete" formControlName="Name" class="form-control InputNew " value="30/01/2001"
+                                                (keyup)="mEnter($event)" (keypress)="preview($event)" style="background-color:white; width: 300px;
+                                                margin-right: 12px; 
+                                                border-radius:5px  5px  5px  5px" type="date" [readonly]="onEdit==true" > 
+                                        </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label letters h5">Identification No:</label>
+                                            
+                                            <input id="Name" autocomplete="doNotAutoComplete" formControlName="Name" class="form-control InputNew " value="27.975.123"
+                                                (keyup)="mEnter($event)" (keypress)="preview($event)"   [readonly]="onEdit==true" > 
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="name-group">
+                                      <div class="col-md-4">
+
+                                        <div class="form-group">
+                                            <label class="control-label letters h5">Sex:</label>
+                                            
+                                            <input id="Name" autocomplete="doNotAutoComplete" formControlName="Name" class="form-control InputNew" 
+                                                (keyup)="mEnter($event)" (keypress)="preview($event)" value="Hombre" type="text" [readonly]="onEdit==true" > 
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
+
+                                        <div class="form-group">
+                                            <label class="control-label letters h5">Marital Status:</label>
+                                            
+                                            <input id="Name" autocomplete="doNotAutoComplete" formControlName="Name" class="form-control " 
+                                                (keyup)="mEnter($event)" (keypress)="preview($event)" style="background-color:white; width: 200px;
+                                                 border:unset;" value="Soltero" type="text" [readonly]="onEdit==true" > 
+                                        </div>
+                                      </div>
+                                      <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label class="control-label letters h5">Country Of Birth:</label>
+                                            
+                                            <input id="Name" autocomplete="doNotAutoComplete" formControlName="Name" class="form-control " 
+                                                (keyup)="mEnter($event)" (keypress)="preview($event)" value="Colombia" style="background-color:white; width: 200px; border: unset;margin-left: 0px;" type="text" [readonly]="onEdit==true" > 
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="name-group">
+                                      <div class="col-md-4">
+
+                                        <div class="form-group">
+                                            <label class="control-label letters h5">Street Address:</label>
+                                            
+                                            <input id="Name" autocomplete="doNotAutoComplete" formControlName="Name" class="form-control InputNew " 
+                                                (keyup)="mEnter($event)" (keypress)="preview($event)" value="11Th street" type="text" [readonly]="onEdit==true" > 
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
+
+                                        <div class="form-group">
+                                            <label class="control-label letters h5">Apt:</label>
+                                            
+                                            <input id="Name" autocomplete="doNotAutoComplete" formControlName="Name" class="form-control InputNew " 
+                                                (keyup)="mEnter($event)" (keypress)="preview($event)" value="las rosas" type="text" [readonly]="onEdit==true" > 
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="country-group">
+                                   
+                                        <div class="form-group">
+                                            <label class="control-label h5">Zip Code:</label>
+                                                
+                                                <!-- OJO dede poner la class="numeric para que traiga el formato de Zipcode"--> 
+                                            <input 
+                                                class="form-control numeric" 
+                                                id="ZipCode"            
+                                                autocomplete="doNotAutoComplete" 
+                                                formControlName="ZipCode"
+                                                type="text" 
+                                                (keyup)="mEnter($event); mgetWithZipCode(fGroup.get('ZipCode').value, $event)"
+                                                style="border-radius:5px 5px 5px 5px;width: 100px; color:#0877b9; border: unset;" 
+                                                type="text" 
+                                                maxlength="5"
+                                                (keydown)="NoExiste=true"
+                                                value="2001"
+                                            >
+                                                    
+                                        </div>       
+                                            <div class="form-group">
+                                                <label class="control-label h5">City:</label>
+
+                                                <input class="form-control"  id="AddvCity"
+                                                    [(ngModel)]="oDatosZipCode.City" name="City"
+                                                    [ngModelOptions]="{standalone: true}"
+                                                    style="background-color:white; border-radius:5px  5px  5px  5px ; width: 100px; border: unset;" 
+                                                    type="text"
+                                                    value="Valencia"
+                                                    >
+                                            </div>
+                                       
+
+                                            <div class="form-group">
+                                                <label class="control-label h5">State:</label>
+                                                <input  
+                                                    class="form-control"  
+                                                    id="AddvState"
+                                                    [(ngModel)]="oDatosZipCode.StateName" 
+                                                    name="State"
+                                                    [ngModelOptions]="{standalone: true}"
+                                                    style="background-color:white; border-radius:5px  5px  5px 5px;
+                                                    width: 100px;border: unset;
+                                                    " 
+                                                    value="Falcon"
+                                                    type="text">
+                                            </div>
+                                        
+                                        
+                                            <div class="form-group">
+                                                <label class="control-label h5 ">Country of Residence:</label>
+                                                <input 
+                                                  class="form-control"  
+                                                  id="AddvCounty"
+                                                  [(ngModel)]="oDatosZipCode.County" 
+                                                  name="County"
+                                                  [ngModelOptions]="{standalone: true}"
+                                                  style="background-color:white; border-radius:5px  5px  5px  5px; width: 100px;border: unset;" 
+                                                  type="text"
+                                                  value="Portugal"
+                                                  >
+                                            </div>
+
+                                                                          
+                                </div>
+                                    
+
+                               
+                                <div class="country-group">
+                                    <div class="col-md-4">
+                                        <div class="form-group ">
+                                            <label class="control-label h5">Phone Home:</label>
+                                            
+                                            <input  
+                                                class="form-control Clase_tel InputNew"  
+                                                id="Phone"                               
+                                                autocomplete="doNotAutoComplete"
+                                                maxlength="12" 
+                                                formControlName="Phone" 
+                                                (keyup)="mEnter($event)"
+                                                placeholder="###-###-####" 
+                                                
+                                                value="">
+                                                
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label h5">Cellular:</label>
+                                            
+                                            <input  
+                                              class="form-control Clase_tel InputNew " 
+                                              id="Fax" 
+                                              maxlength="12" 
+                                              autocomplete="doNotAutoComplete"
+                                              formControlName="Fax" 
+                                              placeholder="###-###-####" 
+                                              (keyup)="mEnter($event)"
+                                              
+                                              type="phone"
+                                            >
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label h5">Email:</label>
+                                        
+                                        <input  
+                                          class="form-control claseEmail" 
+                                          id="Email" 
+                                          autocomplete="doNotAutoComplete"
+                                          formControlName="Email" 
+                                          (keyup)="mEnter($event);mLowerCase($event.target.value)"
+                                          style="border-radius:5px 5px 5px 5px; color:#0877b9; border: unset; " 
+                                          type="email"
+                                          value="Manuel@gmail.com"
+                                          >
+
+                                            
+                                    </div>
+                              </div>
+                              <div class="modal-header align-content-center" >
+                                <h1 *ngIf="!onEdit" class="modal-title" id="exampleModalLongTitle">Emergency Contact</h1>
+                              </div>
+                              <div class="row bg-success">
+                                <div class="box-group">
+                                  <div class="name-group">
+                                    <div class="col-md-8">
+
+                                      <div class="form-group">
+                                            <label class="control-label letters h5">Name:</label>
+                                            
+                                            <input 
+                                              id="Name" 
+                                              autocomplete="doNotAutoComplete" 
+                                              formControlName="Name"
+                                              class="form-control InputNew" 
+                                              (keyup)="mEnter($event)" 
+                                              (keypress)="preview($event)" 
+                                              value="Marcos"
+                                              type="text"
+                                              [readonly]="onEdit==true"
+                                            > 
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                      <div class="form-group">
+                                          <label class="control-label letters h4">LastName:</label>
+                                          
+                                          <input 
+                                              id="Name" 
+                                              autocomplete="doNotAutoComplete" 
+                                              formControlName="Name"
+                                              class="form-control InputNew" 
+                                              (keyup)="mEnter($event)" 
+                                              (keypress)="preview($event)" 
+                                              value="Perez"
+                                              type="text"
+                                              [readonly]="onEdit==true"
+                                            >  
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+
+                                    <div class="form-group">
+                                        <label class="control-label letters mt-3 h5" >RelationShip:</label>
+                                        <input 
+                                              id="Name" 
+                                              autocomplete="doNotAutoComplete" 
+                                              formControlName="Name"
+                                              class="form-control InputNew" 
+                                              (keyup)="mEnter($event)" 
+                                              (keypress)="preview($event)" 
+                                              value="Hermano"
+                                              type="text"
+                                              [readonly]="onEdit==true"
+                                            >  
+                                        
+                                    </div>
+
+                                  </div>
+                                  <div class="name-group">
+                                    <div class="col-md-6">
+
+                                      <div class="form-group">
+                                          <label class="control-label letters h5">Street Address:</label>
+                                          
+                                          <input 
+                                              id="Name" 
+                                              autocomplete="doNotAutoComplete" 
+                                              formControlName="Name"
+                                              class="form-control InputNew" 
+                                              (keyup)="mEnter($event)" 
+                                              (keypress)="preview($event)" 
+                                              value="Manzano 1th"
+                                              type="text"
+                                              [readonly]="onEdit==true"
+                                            > 
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                      <div class="form-group">
+                                          <label class="control-label letters h5">Apt:</label>
+                                          
+                                          <input 
+                                              id="Name" 
+                                              autocomplete="doNotAutoComplete" 
+                                              formControlName="Name"
+                                              class="form-control InputNew" 
+                                              (keyup)="mEnter($event)" 
+                                              (keypress)="preview($event)" 
+                                              value="Tulipan"
+                                              type="text"
+                                              [readonly]="onEdit==true"
+                                            > 
+                                      </div>
+                                    </div>
+                                  </div>
+                                
+                                   
+                                    
+                                </div>
+                                <div class="country-group">
+                                   
+                                        <div class="form-group">
+                                            <label class="control-label h5">Zip Code:</label>
+                                                
+                                                <!-- OJO dede poner la class="numeric para que traiga el formato de Zipcode"--> 
+                                                <input class="form-control"  id="AddvCity"
+                                                [(ngModel)]="oDatosZipCode.City" name="City"
+                                                [ngModelOptions]="{standalone: true}"
+                                                style="background-color:white; border-radius:5px  5px  5px  5px ; width: 100px; border: unset;" 
+                                                type="text"
+                                                value="3001"
+                                                >
+                                                    
+                                        </div>       
+                                            <div class="form-group">
+                                                <label class="control-label h5">City:</label>
+
+                                                <input 
+                                                class="form-control"  
+                                                id="AddvCity"
+                                                [(ngModel)]="oDatosZipCode.City" 
+                                                name="City"
+                                                [ngModelOptions]="{standalone: true}"
+                                                style="background-color:white; border-radius:5px  5px  5px  5px ; width: 100px; border: unset;" 
+                                                type="text"
+                                                value="Barquisimeto"
+                                                >
+                                            </div>
+                                       
+
+                                            <div class="form-group">
+                                                <label class="control-label h5">State:</label>
+                                                <input 
+                                                    class="form-control"  
+                                                    id="AddvCity"
+                                                    [(ngModel)]="oDatosZipCode.City" 
+                                                    name="City"
+                                                    [ngModelOptions]="{standalone: true}"
+                                                    style="background-color:white; border-radius:5px  5px  5px  5px ; width: 100px; border: unset;" 
+                                                    type="text"
+                                                    value="Lara"
+                                                    >
+                                            </div>
+                                        
+                                        
+                                            <div class="form-group">
+                                                <label class="control-label h5 ">County of Residence:</label>
+                                                <input 
+                                                class="form-control"  
+                                                id="AddvCity"
+                                                [(ngModel)]="oDatosZipCode.City" 
+                                                name="City"
+                                                [ngModelOptions]="{standalone: true}"
+                                                style="background-color:white; border-radius:5px  5px  5px  5px ; width: 100px; border: unset;" 
+                                                type="text"
+                                                value="Venezuela"
+                                                >
+                                            </div>
+
+                                                                          
+                                </div>
+                                    
+
+                               
+                                <div class="country-group">
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <label class="control-label h4">Phone Home:</label>
+                                            
+                                            <input 
+                                            id="Name" 
+                                            autocomplete="doNotAutoComplete" 
+                                            formControlName="Name"
+                                            class="form-control InputNew" 
+                                            (keyup)="mEnter($event)" 
+                                            (keypress)="preview($event)" 
+                                            value="02516743923"
+                                            type="text"
+                                            [readonly]="onEdit==true"
+                                          > 
+                                                
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label h4">Cellular:</label>
+                                            
+                                            <input 
+                                            id="Name" 
+                                            autocomplete="doNotAutoComplete" 
+                                            formControlName="Name"
+                                            class="form-control InputNew" 
+                                            (keyup)="mEnter($event)" 
+                                            (keypress)="preview($event)" 
+                                            value="04146524519"
+                                            type="text"
+                                            [readonly]="onEdit==true"
+                                          > 
+                                        </div>
+
+                                    </div>
+                                </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+</html>

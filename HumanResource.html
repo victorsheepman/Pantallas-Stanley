@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Album example · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
+
+    
+
+    
+
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .modal-header{
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      
+    .modal-body{
+        background-color: #0877b9; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .form-control{
+
+        color: #0877b9;
+    }
+    .-group{
+       
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+   }
+    .country-group{
+        width: 100%;
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+        background-color: darkgoldenrod;
+    }
+    .fax-group{
+        width: 65%;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        margin-top: 12px;
+    }
+    .name-group{
+        width: 80%;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        margin-top: 12px;
+    }
+    .InputNew{
+      background-color:white;
+      width: 300px;
+      border: unset;
+      margin-right: 12px; 
+      font-size: 16px;
+      border-radius:5px  5px  5px  5px;
+    }
+   
+
+    </style>
+
+    
+  </head>
+  <body>
+    <!-- Modal -->
+    <div class="" id="ADDMODAL" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" 
+        aria-hidden="true">
+        <div class="modal-header align-content-center" >
+            <h1 *ngIf="!onEdit" class="modal-title" id="exampleModalLongTitle">Human Resources Section</h1>
+        </div>
+        <div class="modal-dialog" role="document"  >
+            <div class="modal-content" >    
+                <div class="modal-body ">
+                    <!-- ... A partir de aqui -->
+                    <form [formGroup]="fGroup" >
+                        <!-- <fieldset class="card  border-left-primary"></fieldset> -->
+                        
+                            <!-- <div class="row mt-2"  style="margin-left: 5px !important;"> -->
+                            <div class="row bg-success">
+                                <div class="box-group">
+                                  <div class="name-group">
+                                    <div class="col-md-8">
+
+                                      <div class="form-group">
+                                            <label class="control-label letters h5">Position:</label>
+                                            
+                                            <input 
+                                            id="Name" 
+                                            autocomplete="doNotAutoComplete" 
+                                            formControlName="Name"
+                                            class="form-control InputNew" 
+                                            (keyup)="mEnter($event)" 
+                                            (keypress)="preview($event)" 
+                                            value="Desarrollador"
+                                            type="text"
+                                            [readonly]="onEdit==true"
+                                          > 
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                      <div class="form-group">
+                                          <label class="control-label letters h5">Type of Employment:</label>
+                                          
+                                          <input 
+                                            id="Name" 
+                                            autocomplete="doNotAutoComplete" 
+                                            formControlName="Name"
+                                            class="form-control InputNew" 
+                                            (keyup)="mEnter($event)" 
+                                            (keypress)="preview($event)" 
+                                            value="Freelancer"
+                                            type="text"
+                                            [readonly]="onEdit==true"
+                                          > 
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="name-group">
+                                    <div class="col-md-8">
+
+                                      <div class="form-group">
+                                            <label class="control-label letters h5">Start Date:</label>
+                                            
+                                            <input 
+                                                id="Name" 
+                                                autocomplete="doNotAutoComplete" 
+                                                formControlName="Name"
+                                                class="form-control InputNew" 
+                                                (keyup)="mEnter($event)" 
+                                                (keypress)="preview($event)" 
+                                                value="11/09/2001"
+                                                type="text"
+                                                [readonly]="onEdit==true"
+                                          > 
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                      <div class="form-group">
+                                          <label class="control-label letters h5">Salary:</label>
+                                          
+                                          <input 
+                                          id="Name" 
+                                          autocomplete="doNotAutoComplete" 
+                                          formControlName="Name"
+                                          class="form-control InputNew" 
+                                          (keyup)="mEnter($event)" 
+                                          (keypress)="preview($event)" 
+                                          value="400$"
+                                          type="text"
+                                          [readonly]="onEdit==true"
+                                        > 
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-4">
+
+
+                                  </div>
+                                  <div class="name-group">
+                                    <div class="col-md-6">
+
+                                      <div class="form-group">
+                                          <label class="control-label letters h5">User Identification:</label>
+                                          
+                                          <input 
+                                          id="Name" 
+                                          autocomplete="doNotAutoComplete" 
+                                          formControlName="Name"
+                                          class="form-control InputNew" 
+                                          (keyup)="mEnter($event)" 
+                                          (keypress)="preview($event)" 
+                                          value="Chipi2010"
+                                          type="text"
+                                          [readonly]="onEdit==true"
+                                        >  
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                      <div class="form-group">
+                                          <label class="control-label letters h5">Password:</label>
+                                          
+                                          <input 
+                                          id="Name" 
+                                          autocomplete="doNotAutoComplete" 
+                                          formControlName="Name"
+                                          class="form-control InputNew" 
+                                          (keyup)="mEnter($event)" 
+                                          (keypress)="preview($event)" 
+                                          value="Chuiruskj"
+                                          type="text"
+                                          [readonly]="onEdit==true"
+                                        > 
+                                      </div>
+                                    </div>
+                                  </div>
+                                
+                                   
+                                    
+                                </div>
+                                <div class="name-group">
+                                    <div class="col-md-12 pr-5 ">
+                                        <div style="margin-top: 12px">
+                                            <!-- <label class="control-label">Status</label>  -->
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label control-label h3" for="inlineRadio1 ">Roles: </label>
+                                            </div>
+                                            <label class="radio-inline radio control-label h5">
+                                                Admin
+                                                <input value="Active" value="1" id="Status"
+                                                    formControlName="Status" type="radio">
+                                                &nbsp;&nbsp;
+                                                User
+                                                <input id="Status" formControlName="Status"
+                                                    type="radio" value="0">
+                                            </label>
+                                        </div>
+    
+                                    </div>
+                                    <div class="col-md-12 pr-5 ">
+                                        <div style="margin-top: 12px">
+                                            <!-- <label class="control-label">Status</label>  -->
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label control-label h3" for="inlineRadio1 ">Status: </label>
+                                            </div>
+                                            <label class="radio-inline radio control-label h4">
+                                                Active
+                                                <input value="Active" value="1" id="Status"
+                                                    formControlName="Status" type="radio">
+                                                &nbsp;&nbsp;
+                                                Inactive
+                                                <input id="Status" formControlName="Status"
+                                                    type="radio" value="0">
+                                            </label>
+                                        </div>
+    
+                                    </div>
+                                
+                                   
+                                    
+                                </div>
+                               
+
+                               
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+</html>
