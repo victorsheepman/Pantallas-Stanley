@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    
+ <div class="modal fade" id="ADDMODAL" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"  
+ aria-hidden="true">
+ <div class="modal-dialog" role="document">
+     <div class="modal-content" >
+         <div class="modal-header" >
+             <h1 *ngIf="!onEdit" class="modal-title" id="exampleModalLongTitle"> Diagnosis</h1>
+         </div>
+         <div class="modal-body">
+             <!-- ... A partir de aqui -->
+             <form [formGroup]="fGroup" class="form-body" >
+                 
+                     <div class="row">
+                         <div class="col-md-8">
+
+
+                             <div class="form-group">
+                                <div class="box">
+                                    <label class="control-label">Diagnosis Name</label>
+                                    <input 
+                                        autocomplete="off" 
+                                        formControlName="Name" 
+                                        class="form-control" 
+                                        id="Name"
+                                        (keyup)="mEnter($event)" 
+                                        style="background-color:white; border-radius:5px  5px  5px  5px" 
+                                        type="text" [readonly]="onEdit==true" 
+                                        value="Victor Marquez"
+                                     >
+                                </div>
+                                 
+                                 
+
+                             </div>
+
+                         </div>
+
+
+                         <div class="col-md-12">
+                             <div class="form-group">
+                                 <label class="control-label">Diagnosis Description</label>
+                                 
+                                 <textarea  class="form-control"  id="Description" formControlName="Description"
+                                     (keyup)="mEnter($event)" style="border-radius:5px 5px 5px 5px" type="text"
+                                     value="una enfermedad muy seria">
+                                 </textarea>
+                               
+                             </div>
+                         </div>
+                        
+                         
+
+                         <!-- <script>
+                            document.getElementById('Name').addEventListener('focus',cambiar);
+                            document.getElementById('Name').addEventListener('blur',regresar);
+                       
+                           function cambiar(evento){
+                               let componente = evento.target;
+                               componente.style.background='yellow';
+                           }
+                       
+                           function regresar(evento){
+                               evento.target.style.background='white';
+                           }
+                       
+                       
+                        </script> -->
+
+
+
+                         <div class="col-md-12">
+                             <label class="control-label">Status</label>
+                             <div class="form-group">
+
+
+                                 <label class="radio-inline radio control-label">
+                                     Active
+                                     <input value="Active" value="1" id="Status" formControlName="Status"
+                                         type="radio">
+                                     &nbsp;&nbsp;
+                                     Inactive
+                                     <input id="Status" formControlName="Status" type="radio" value="0">
+                                 </label>
+                             </div>
+
+                         </div>
+
+                         <div class="col-md-12 text-center">
+                             <div class="modal-footer">
+                             </div>
+                         </div>
+                     </div>
+
+                 </fieldset>
+             </form>
+
+         </div>
+     </div>
+
+ </div>
+</body>
+</html>

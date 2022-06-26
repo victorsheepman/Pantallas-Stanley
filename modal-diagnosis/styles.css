@@ -1,0 +1,77 @@
+table {
+    border: 1px solid rgba(215, 216, 225, 0.5);
+}
+
+.modal-body{
+    display: flex;
+    height: 'auto';
+    justify-content: center;
+    align-items: center;
+}
+.form-body{
+    width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.modal-header{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.modal-title{
+    font-size: 44px;
+}
+
+.mat-header-cell {
+    
+    vertical-align: bottom;
+    background-color:  #858796;;
+    color: rgba(255, 255, 255, .8);
+    font-weight: 700;
+    font-size: 14px;
+  
+}
+.control-label{
+    font-size: 35px;
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 12px;
+}
+.box{
+    width: 100%;
+    height: 'auto';
+    
+    
+}
+
+
+.table th
+ {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #e3e6f0;
+    border: 1px solid #e3e6f0 !important;
+}
+.form-group{
+   width: '100%'; 
+}
+
+.form-control:focus{
+  
+    background-color: rgb(250, 250, 237) !important;
+}
+
+.form-control{
+    width: 250px;
+    font-size: 22px;
+    
+    color: #0877b9!important;
+}
+.form-group textarea{
+    width: 700px;
+    height: 500px;
+}
